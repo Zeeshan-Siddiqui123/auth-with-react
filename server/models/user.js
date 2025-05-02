@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
+mongoose.connect('mongodb://127.0.0.1:27017/auth-with-react')
 
-mongoose.connect('mongodb://127.0.0.1:27017/auth')
-
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name: String,
-    username: String,
-    email: String,
+    username: { type: String, unique: true },
+    email: { type: String, unique: true },
     age: Number,
-    password: String,
+    password: String
+
 })
 
-module.exports = mongoose.model('user', userSchema)
+module.exports = mongoose.model("users", userSchema)
