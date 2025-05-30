@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const sendOtp = require('./Controllers/sendotp')
 
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 
 
 app.post('/create', async (req, res) => {
+
   try {
     const { name, username, email, age, password } = req.body;
 
@@ -49,6 +51,7 @@ app.post('/create', async (req, res) => {
     res.status(500).json({ message: "Server error", error });
   }
 });
+
 
 
 app.get('/getusers', async (req, res) => {
@@ -82,6 +85,7 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ message: "Server error", error })
     }
 })
+
 
 app.post('/verify-otp', async (req, res) => {
     try {
@@ -121,3 +125,4 @@ app.post('/verify-otp', async (req, res) => {
 app.get('/mail', sendOtp)
 
 app.listen(3000, () => console.log("Server running on http://localhost:3000"))
+

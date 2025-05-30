@@ -41,7 +41,9 @@ const Create = () => {
       });
       setTimeout(() => {
         setMessage("")
+
         navigate('/verify')
+
       }, 2000)
     } catch (error) {
       setError(error.response?.data?.message || "Something went wrong")
