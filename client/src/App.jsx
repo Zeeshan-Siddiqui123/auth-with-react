@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Create from './Screens/Create'
 import Login from './Screens/Login'
+import VerifyOtp from './Screens/VerifyOtp'
 
 const App = () => {
     return (
@@ -10,6 +11,7 @@ const App = () => {
                 <Routes>
                     <Route path='/' element={<Create/>}/>
                     <Route path='/login' element={<Login/>}/>
+                    <Route path="/verify" element={<VerifyOtp />} />
                 </Routes>
             </BrowserRouter>
         </div>
